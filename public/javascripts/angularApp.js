@@ -1,4 +1,4 @@
-var app = angular.module('AmooQuiz', ['ui.router']);
+var app = angular.module('IntelligentDoll', ['ui.router']);
 
 // app.factory('posts', ['$http', 'auth', function ($http, auth) {
 //     var o = {

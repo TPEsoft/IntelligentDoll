@@ -2,15 +2,14 @@ var express = require('express');
 var router = express.Router();
 var passport = require('passport');
 var jwt = require('express-jwt');
-var mailer = require('../services/mailer');
 
 
 var auth = jwt({secret: 'SECRET', userProperty: 'payload'});
 
-/* GET dashboard page */
-router.get('/dashboard', function (req, res, next) {
-    res.render('dashboard', {title: 'Express'});
-});
+///* GET dashboard page */
+//router.get('/dashboard', function (req, res, next) {
+//    res.render('dashboard', {title: 'Express'});
+//});
 
 /* GET home page. */
 router.get('/', function (req, res, next) {
@@ -21,43 +20,41 @@ module.exports = router;
 
 var mongoose = require('mongoose');
 var ActivationToken = mongoose.model('ActivationToken');
-var Category = mongoose.model('Category');
-var Comment = mongoose.model('Comment');
 var User = mongoose.model('User');
 
-router.get('/posts', function (req, res, next) {
-    Category.find(function (err, categories) {
-        if (err)
-            return next(err);
+//router.get('/posts', function (req, res, next) {
+//    Category.find(function (err, categories) {
+//        if (err)
+//            return next(err);
+//
+//        res.json(categories);
+//    });
+//});
 
-        res.json(categories);
-    });
-});
+//router.post('/posts', auth, function (req, res, next) {
+//    var category = new Category(req.body);
+//    category.author = req.payload.username;
+//
+//    category.save(function (err, next) {
+//        if (err)
+//            return next(err);
+//        res.json(category);
+//    });
+//});
 
-router.post('/posts', auth, function (req, res, next) {
-    var category = new Category(req.body);
-    category.author = req.payload.username;
-
-    category.save(function (err, next) {
-        if (err)
-            return next(err);
-        res.json(category);
-    });
-});
-
-router.param('comment', function (req, res, next, id) {
-    var query = Comment.findById(id);
-
-    query.exec(function (err, comment) {
-        if (err)
-            return next(err);
-        if (!comment)
-            return next(new Error('can\'t find error'));
-
-        req.comment = comment;
-        return next();
-    });
-});
+//router.param('comment', function (req, res, next, id) {
+//    var query = Comment.findById(id);
+//
+//    query.exec(function (err, comment) {
+//        if (err)
+//            return next(err);
+//        if (!comment)
+//            return next(new Error('can\'t find error'));
+//
+//        req.comment = comment;
+//        return next();
+//    });
+//});
 
 /*router.put('/posts/:post/comments/:comment/upvote', auth, function (req, res, next) {
  req.comment.upvote(function (err, comment) {
@@ -67,19 +64,19 @@ router.param('comment', function (req, res, next, id) {
  });
  });*/
 
-router.param('post', function (req, res, next, id) {
-    var query = Category.findById(id);
-
-    query.exec(function (err, category) {
-        if (err)
-            return next(err);
-        if (!category)
-            return next(new Error('can\'t find category.'));
-
-        req.category = category;
-        return next();
-    });
-});
+//router.param('post', function (req, res, next, id) {
+//    var query = Category.findById(id);
+//
+//    query.exec(function (err, category) {
+//        if (err)
+//            return next(err);
+//        if (!category)
+//            return next(new Error('can\'t find category.'));
+//
+//        req.category = category;
+//        return next();
+//    });
+//});
 
 router.param('activationToken', function (req, res, next, id) {
     ActivationToken.find({token: id}, function (err, activationToken) {
@@ -101,30 +98,30 @@ router.param('activationToken', function (req, res, next, id) {
     });
 });
 
-router.get('/posts/:post', function (req, res) {
-    req.category.populate('comments', function (err, category) {
-        if (err)
-            return next(err);
-
-        res.json(category);
-    });
-});
-
-router.post('/posts/delete/:post', function (req, res) {
-    Category.find({_id: req.category._id}, function (err, categories) {
-        if (err)
-            return next(err);
-
-        if (categories.length <= 0)
-            return next(new Error('can\'t find category.'));
-        
-        categories[0].remove(function (err) {
-            if(err)
-                return next(err);
-            console.log("category was removed.");
-        });
-    });
-});
+//router.get('/posts/:post', function (req, res) {
+//    req.category.populate('comments', function (err, category) {
+//        if (err)
+//            return next(err);
+//
+//        res.json(category);
+//    });
+//});
+//
+//router.post('/posts/delete/:post', function (req, res) {
+//    Category.find({_id: req.category._id}, function (err, categories) {
+//        if (err)
+//            return next(err);
+//
+//        if (categories.length <= 0)
+//            return next(new Error('can\'t find category.'));
+//
+//        categories[0].remove(function (err) {
+//            if(err)
+//                return next(err);
+//            console.log("category was removed.");
+//        });
+//    });
+//});
 
 /*router.put('/posts/:post/upvote', auth, function (req, res, next) {
  req.post.upvote(function (err, post) {
@@ -134,24 +131,24 @@ router.post('/posts/delete/:post', function (req, res) {
  });
  });*/
 
-router.post('/posts/:post/comments', auth, function (req, res, next) {
-    var comment = new Comment(req.body);
-    comment.category = req.category;
-    comment.author = req.payload.username;
-
-    comment.save(function (err, comment) {
-        if (err)
-            return next(err);
-
-        req.category.comments.push(comment);
-        req.category.save(function (err, category) {
-            if (err)
-                return next(err);
-
-            res.json(comment);
-        });
-    });
-});
+//router.post('/posts/:post/comments', auth, function (req, res, next) {
+//    var comment = new Comment(req.body);
+//    comment.category = req.category;
+//    comment.author = req.payload.username;
+//
+//    comment.save(function (err, comment) {
+//        if (err)
+//            return next(err);
+//
+//        req.category.comments.push(comment);
+//        req.category.save(function (err, category) {
+//            if (err)
+//                return next(err);
+//
+//            res.json(comment);
+//        });
+//    });
+//});
 
 router.get('/activation/:activationToken/', function (req, res, next) {
     console.log(req.username);
