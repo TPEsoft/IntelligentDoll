@@ -41,104 +41,104 @@
 <body ng-app="IntelligentDoll">
 <ui-view></ui-view>
 
-<script type="text/ng-template" id="/home.html">
+<!--<script type="text/ng-template" id="/home.html">-->
 
-  <link href="stylesheets/mainPage/custom.css" rel="stylesheet">
+  <!--<link href="stylesheets/mainPage/custom.css" rel="stylesheet">-->
 
-  <!-- Navigation -->
+  <!--&lt;!&ndash; Navigation &ndash;&gt;-->
 
-  <!-- Header -->
-  <header>
-    <div class="header-content">
-      <div class="header-content-inner">
-        <a href="/#/register" class="btn btn-primary btn-lg"> ثبت نام </a>
-        <a href="/#/login" class="btn btn-primary btn-lg"> ورود </a>
-      </div>
+  <!--&lt;!&ndash; Header &ndash;&gt;-->
+  <!--<header>-->
+    <!--<div class="header-content">-->
+      <!--<div class="header-content-inner">-->
+        <!--<a href="/#/register" class="btn btn-primary btn-lg"> ثبت نام </a>-->
+        <!--<a href="/#/login" class="btn btn-primary btn-lg"> ورود </a>-->
+      <!--</div>-->
 
-    </div>
-  </header>
+    <!--</div>-->
+  <!--</header>-->
 
-  <!-- Intro Section -->
-
-
-  <!-- Content 1 -->
+  <!--&lt;!&ndash; Intro Section &ndash;&gt;-->
 
 
-  <!-- Content 2 -->
+  <!--&lt;!&ndash; Content 1 &ndash;&gt;-->
 
 
-  <!-- Promos -->
-
-  <!-- Content 3 -->
+  <!--&lt;!&ndash; Content 2 &ndash;&gt;-->
 
 
-  <!-- Footer -->
-  <footer class="page-footer">
+  <!--&lt;!&ndash; Promos &ndash;&gt;-->
 
-    <!-- Contact Us -->
-    <div class="contact">
-      <div class="container">
-        <h2 class="section-heading">Contact Us</h2>
-
-        <p><span class="glyphicon glyphicon-earphone"></span><br> +1(23) 456 7890</p>
-
-        <p><span class="glyphicon glyphicon-envelope"></span><br> info@example.com</p>
-      </div>
-    </div>
-
-    <!-- Copyright etc -->
-    <div class="small-print">
-      <div class="container">
-        <p>Copyright &copy; Example.com 2015</p>
-      </div>
-    </div>
-
-  </footer>
+  <!--&lt;!&ndash; Content 3 &ndash;&gt;-->
 
 
-  <!--
-              <div class="page-header">
-                  <h1>Quize App</h1>
-              </div>
+  <!--&lt;!&ndash; Footer &ndash;&gt;-->
+  <!--<footer class="page-footer">-->
+
+    <!--&lt;!&ndash; Contact Us &ndash;&gt;-->
+    <!--<div class="contact">-->
+      <!--<div class="container">-->
+        <!--<h2 class="section-heading">Contact Us</h2>-->
+
+        <!--<p><span class="glyphicon glyphicon-earphone"></span><br> +1(23) 456 7890</p>-->
+
+        <!--<p><span class="glyphicon glyphicon-envelope"></span><br> info@example.com</p>-->
+      <!--</div>-->
+    <!--</div>-->
+
+    <!--&lt;!&ndash; Copyright etc &ndash;&gt;-->
+    <!--<div class="small-print">-->
+      <!--<div class="container">-->
+        <!--<p>Copyright &copy; Example.com 2015</p>-->
+      <!--</div>-->
+    <!--</div>-->
+
+  <!--</footer>-->
 
 
-              <div ng-repeat="post in posts | orderBy:'-upvotes'">
-                  <span class="glyphicon glyphicon-thumbs-up" ng-click="incrementUpvotes(post)"></span>
-                  {{post.upvotes}}
-                  <span style="font-size:20px; margin-left:10px;">
-                      <a ng-show="post.link" href="#/posts/{{post._id}}">
-                          {{post.title}}
-                      </a>
-                      <span ng-hide="post.link">
-                          {{post.title}}
-                      </span>
-                  </span>
-                  <span ng-show="post.author">
-                        posted by <a>{{post.author}}</a> |
-                  </span>
-                    <span>
-                        {{post.link}}
-                  </span>
-              </div>
-
-              <div ng-hide="isLoggedIn()">
-                    <h3>You need to <a href="/#/login">Log In</a> or <a href="/#/register">Register</a> before you can add a post.</h3>
-              </div>
-
-              <form ng-submit="addPost()" ng-show="isLoggedIn()" style="margin-top:30px;">
-                  <h3>Add a new Question</h3>
-                  <div class="form-group">
-                      <input type="text" class="form-control" placeholder="Title" ng-model="title"></input>
-                  </div>
-                  <div class="form-group">
-                      <input type="text" class="form-control" placeholder="description" ng-model="link"></input>
-                  </div>
-                  <button type="submit" class="btn btn-primary">Post</button>
-              </form>
-      -->
+  <!--&lt;!&ndash;-->
+              <!--<div class="page-header">-->
+                  <!--<h1>Quize App</h1>-->
+              <!--</div>-->
 
 
-</script>
+              <!--<div ng-repeat="post in posts | orderBy:'-upvotes'">-->
+                  <!--<span class="glyphicon glyphicon-thumbs-up" ng-click="incrementUpvotes(post)"></span>-->
+                  <!--{{post.upvotes}}-->
+                  <!--<span style="font-size:20px; margin-left:10px;">-->
+                      <!--<a ng-show="post.link" href="#/posts/{{post._id}}">-->
+                          <!--{{post.title}}-->
+                      <!--</a>-->
+                      <!--<span ng-hide="post.link">-->
+                          <!--{{post.title}}-->
+                      <!--</span>-->
+                  <!--</span>-->
+                  <!--<span ng-show="post.author">-->
+                        <!--posted by <a>{{post.author}}</a> |-->
+                  <!--</span>-->
+                    <!--<span>-->
+                        <!--{{post.link}}-->
+                  <!--</span>-->
+              <!--</div>-->
+
+              <!--<div ng-hide="isLoggedIn()">-->
+                    <!--<h3>You need to <a href="/#/login">Log In</a> or <a href="/#/register">Register</a> before you can add a post.</h3>-->
+              <!--</div>-->
+
+              <!--<form ng-submit="addPost()" ng-show="isLoggedIn()" style="margin-top:30px;">-->
+                  <!--<h3>Add a new Question</h3>-->
+                  <!--<div class="form-group">-->
+                      <!--<input type="text" class="form-control" placeholder="Title" ng-model="title"></input>-->
+                  <!--</div>-->
+                  <!--<div class="form-group">-->
+                      <!--<input type="text" class="form-control" placeholder="description" ng-model="link"></input>-->
+                  <!--</div>-->
+                  <!--<button type="submit" class="btn btn-primary">Post</button>-->
+              <!--</form>-->
+      <!--&ndash;&gt;-->
+
+
+<!--</script>-->
 
 <!--<script type="text/ng-template" id="/posts.html">-->
 <!--<div class="page-header">-->
