@@ -121,14 +121,14 @@ app.config([
         //         }
         //     });
         $stateProvider
-            .state('home', {
-                url: '/home',
-                templateUrl: '/home.html',
+            .state('homePage', {
+                url: '/homePage',
+                templateUrl: '/homePage.html',
                 controller: 'MainCtrl',
                 onEnter: ['$state', 'auth', function ($state, auth) {
                     if (auth.isLoggedIn()) {
                         var $window = $windowProvider.$get();
-                        $window.location.href = '/dashboard';
+                        $window.location.href = '/homePage';
                     }
                 }]
                 // resolve: {
@@ -137,7 +137,7 @@ app.config([
                 //     }]
                 // }
             });
-        
+
         // $stateProvider
         //     .state('posts', {
         //         url: '/posts/{id}',
@@ -157,7 +157,8 @@ app.config([
                 controller: 'AuthCtrl',
                 onEnter: ['$state', 'auth', function ($state, auth) {
                     if (auth.isLoggedIn()) {
-                        $state.go('home');
+                        console.log("ali");
+                        $state.go('homePage');
                     }
                 }]
             });
@@ -169,13 +170,14 @@ app.config([
                 controller: 'AuthCtrl',
                 onEnter: ['$state', 'auth', function ($state, auth) {
                     if (auth.isLoggedIn()) {
-                        $state.go('home');
+                        console.log("ali");
+                        $state.go('homePage');
                     }
                 }]
             });
 
 
-        $urlRouterProvider.otherwise('home');
+        $urlRouterProvider.otherwise('homePage');
     }]);
 
 // app.controller('PostsCtrl',
@@ -230,7 +232,7 @@ app.controller('AuthCtrl',
                 auth.register($scope.user).error(function (error) {
                     $scope.error = error;
                 }).then(function () {
-                    $state.go('home');
+                    $state.go('homePage');
                 });
             };
 
@@ -238,7 +240,7 @@ app.controller('AuthCtrl',
                 auth.login($scope.user).error(function (error) {
                     $scope.error = error;
                 }).then(function () {
-                    $state.go('home');
+                    $state.go('homePage');
                 });
             };
 

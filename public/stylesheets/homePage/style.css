@@ -101,7 +101,7 @@ top:0;
 bottom:0;
 right:0;
 z-index:9999;
-background:#fff url('../img/preloader.gif') no-repeat center center;
+background:#fff url('../../images/homePage/preloader.gif') no-repeat center center;
 }
 
 /*Typography*/
@@ -192,7 +192,7 @@ padding-top:20px;
  .gallery
  {
  min-height:600px;
- background:url('../img/background.jpg');
+ background:url('../../images/homePage/background.jpg');
  background-size:cover;
  margin-top:90px;
  
