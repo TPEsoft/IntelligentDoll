@@ -108,7 +108,7 @@ app.config([
     '$stateProvider',
     '$urlRouterProvider',
     '$windowProvider',
-    function ($stateProvider, $urlRouterProvider , $windowProvider){
+    function ($stateProvider, $urlRouterProvider, $windowProvider) {
         // $stateProvider
         //     .state('dashboard', {
         //         url: '/dashboard',
@@ -174,6 +174,24 @@ app.config([
                         $state.go('homePage');
                     }
                 }]
+            });
+
+        $stateProvider
+            .state('gallery', {
+                url: '/gallery',
+                templateUrl: '/gallery.html',
+                controller: 'GalleryCtrl',
+                onEnter: ['$state', 'auth', function ($state, auth) {
+                    if (auth.isLoggedIn()) {
+                        var $window = $windowProvider.$get();
+                        $window.location.href = '/gallery';
+                    }
+                }]
+                // resolve: {
+                //     postPromise: ['posts', function (posts) {
+                //         return posts.getAll();
+                //     }]
+                // }
             });
 
 

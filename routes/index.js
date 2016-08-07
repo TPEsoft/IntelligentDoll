@@ -11,9 +11,24 @@ var auth = jwt({secret: 'SECRET', userProperty: 'payload'});
 //    res.render('dashboard', {title: 'Express'});
 //});
 
-/* GET home page. */
+/* GET Home Page. */
 router.get('/', function (req, res, next) {
     res.render('homePage', {title: 'Express'});
+});
+
+/* GET Register Page. */
+router.get('/register', function (req, res, next) {
+    res.render('register', {title: 'Express'});
+});
+
+/* GET Login Page. */
+router.get('/login', function (req, res, next) {
+    res.render('login', {title: 'Express'});
+});
+
+/* GET Home Page. */
+router.get('/gallery', function (req, res, next) {
+    res.render('gallery', {title: 'Express'});
 });
 
 module.exports = router;
