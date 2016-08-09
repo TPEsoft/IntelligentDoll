@@ -191,28 +191,37 @@ router.post('/register', function (req, res, next) {
     user.isActivated = false;
 
 
+
     require('crypto').randomBytes(48, function (ex, buf) {
         var activationToken = new ActivationToken();
         activationToken.token = buf.toString('base64').replace(/\//g, '_').replace(/\+/g, '-');
         activationToken.username = user.username;
-        mailer.sendActivationCodeTo(user.email, activationToken.token);
+//        mailer.sendActivationCodeTo(user.email, activationToken.token);
 
         user.setPassword(req.body.password);
 
+        /*
         activationToken.save(function (err) {
             if (err) {
                 console.log(err.merge);
             }
         });
+        */
+
 
         user.save(function (err) {
             if (err) {
+                User.find({username: user.username}, function (err, user) {
+                    return res.status(400).json({message: 'کاربری با این نام قبلا ثبت شده است.'});
+                });
                 console.log(err.message);
                 return next(err);
             }
 
             return res.json({token: user.generateJWT()});
         });
+
+
     });
 });
 

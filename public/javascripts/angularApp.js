@@ -104,6 +104,11 @@ app.factory('auth', ['$http', '$window', function ($http, $window) {
     return auth;
 }]);
 
+app.run(function($window){
+    if($window.localStorage['flapper-news-token'] != null)
+        $window.location.href='/';
+});
+/*
 app.config([
     '$stateProvider',
     '$urlRouterProvider',
@@ -197,6 +202,7 @@ app.config([
 
         $urlRouterProvider.otherwise('homePage');
     }]);
+    */
 
 // app.controller('PostsCtrl',
 //     ['$scope', 'posts', 'post', 'auth',
@@ -225,8 +231,8 @@ app.config([
 //         }]);
 
 app.controller('AuthCtrl',
-    ['$scope', '$state', 'auth',
-        function ($scope, $state, auth) {
+    ['$scope', '$state', 'auth','$window',
+        function ($scope, $state, auth,$window) {
             $scope.user = {
                 agreement: false,
                 password: ''
@@ -250,7 +256,8 @@ app.controller('AuthCtrl',
                 auth.register($scope.user).error(function (error) {
                     $scope.error = error;
                 }).then(function () {
-                    $state.go('homePage');
+                    //$state.go('homePage');
+                    $window.location.href = '/homePage';
                 });
             };
 
@@ -258,7 +265,8 @@ app.controller('AuthCtrl',
                 auth.login($scope.user).error(function (error) {
                     $scope.error = error;
                 }).then(function () {
-                    $state.go('homePage');
+                    //$state.go('homePage');
+                    $window.location.href = '/homePage';
                 });
             };
 
