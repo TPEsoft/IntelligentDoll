@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 var passport = require('passport');
 var jwt = require('express-jwt');
+var mailer = require('../services/mailer');
 
 
 var auth = jwt({secret: 'SECRET', userProperty: 'payload'});
@@ -190,13 +191,11 @@ router.post('/register', function (req, res, next) {
     user.email = req.body.email;
     user.isActivated = false;
 
-
-
     require('crypto').randomBytes(48, function (ex, buf) {
         var activationToken = new ActivationToken();
         activationToken.token = buf.toString('base64').replace(/\//g, '_').replace(/\+/g, '-');
         activationToken.username = user.username;
-//        mailer.sendActivationCodeTo(user.email, activationToken.token);
+        mailer.sendActivationCodeTo(user.email, activationToken.token);
 
         user.setPassword(req.body.password);
 

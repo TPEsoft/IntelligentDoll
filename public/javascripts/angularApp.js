@@ -257,7 +257,7 @@ app.controller('AuthCtrl',
                     $scope.error = error;
                 }).then(function () {
                     //$state.go('homePage');
-                    $window.location.href = '/homePage';
+                    $window.location.href = '/';
                 });
             };
 
@@ -266,7 +266,7 @@ app.controller('AuthCtrl',
                     $scope.error = error;
                 }).then(function () {
                     //$state.go('homePage');
-                    $window.location.href = '/homePage';
+                    $window.location.href = '/';
                 });
             };
 
