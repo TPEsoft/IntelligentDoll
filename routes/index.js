@@ -220,7 +220,6 @@ router.post('/register', function (req, res, next) {
             return res.json({token: user.generateJWT()});
         });
 
-
     });
 });
 
