@@ -178,6 +178,11 @@ router.get('/activation/:activationToken/', function (req, res, next) {
 });
 
 router.post('/register', function (req, res, next) {
+
+    var d = new Date();
+    console.log(d.getDate());
+    console.log("alaki");
+
     if (!req.body.username || !req.body.password || !req.body.email)
         return res.status(400).json({message: 'لطفا تمام فیلد‌های زیر را پر کنید.'});
 
@@ -209,15 +214,14 @@ router.post('/register', function (req, res, next) {
 
 
         user.save(function (err) {
-            if (err) {
-                User.find({username: user.username}, function (err, user) {
-                    return res.status(400).json({message: 'کاربری با این نام قبلا ثبت شده است.'});
-                });
+            if ( err && err.code !== 11000 ) {
                 console.log(err.message);
                 return next(err);
             }
-
-            return res.json({token: user.generateJWT()});
+            else if ( err && err.code === 11000 ) {
+                return res.status(400).json({message: 'کاربری با این نام قبلا ثبت شده است.'});
+            } else
+                return res.json({token: user.generateJWT()});
         });
 
     });

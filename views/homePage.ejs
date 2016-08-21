@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>
-        Shym-A Stylish Landing Page Website Template
+        Intelligent Doll
     </title>
     <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
     <link href="stylesheets/bootstrap.min.css" rel="stylesheet">
@@ -25,6 +25,14 @@
 
 <!-- HEADER STARTS HERE -->
 <header class="navbar navbar-inverse navbar-fixed-top heading" role="banner">
+    <script>
+//        var d = new Date();
+//        d.setYear(d.getFullYear()+2);
+//        type: "premium";
+//        var expirationDate = new Date();
+//        expirationDate.setYear(d.getFullYear());
+//        console.log(expirationDate.getFullYear());
+    </script>
     <div class="container">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle togglebutton" data-toggle="collapse" data-target=".navbar-collapse">
@@ -84,7 +92,15 @@
                         <li><a href="#">Terms of Use</a></li>
                     </ul>
                 </li>
-                <li><a href="login"><i class="fa fa-fw fa-book" ng-click="/login"></i>ورود</a></li>
+                <li id="LOGOUT"><a href="login"><i class="fa fa-sign-out" ng-click="logout()" ></i>خروج</a></li>
+                <li id="LOGIN"><a href="login"><i class="fa fa-fw fa-book" ng-click="/login" ></i>ورود</a></li>
+                <script>
+//                    if($window.localStorage['flapper-news-token'] != null)
+//                        document.getElementById("LOGOUT").style.visibility = "visible";
+//                    else
+//                        document.getElementById("LOGIN").style.visibility = "visible";
+                </script>
+
 
             </ul>
         </div>

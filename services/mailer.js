@@ -39,7 +39,7 @@ var helper = {
             }
             console.log('Message sent: ' + info.response);
         });
-    },
+    }
 };
 
         //  TODO here  to
@@ -59,7 +59,7 @@ module.exports = {
         mailOptions.html += '<p>' + helper.getActivationLink(key) + '</p>';
 
         helper.sendMail(mailOptions);
-    },
+    }
 };
 /**
  * sample codes from stack oveflow

@@ -99,6 +99,9 @@ app.factory('auth', ['$http', '$window', function ($http, $window) {
 
     auth.logout = function () {
         $window.localStorage.removeItem('flapper-news-token');
+        console.log(localStorage['flapper-news-token']);
+        console.log("#############################################");
+        //$window.location.href = '/';
     };
 
     return auth;
