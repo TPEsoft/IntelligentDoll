@@ -6,6 +6,11 @@
         Intelligent Doll
     </title>
     <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
+
+    <script src="javascripts/angular.min.js"></script>
+    <script src="javascripts/angular-ui-router.js"></script>
+    <script src="javascripts/angularApp.js"></script>
+
     <link href="stylesheets/bootstrap.min.css" rel="stylesheet">
     <link href="stylesheets/homePage/style.css" rel="stylesheet">
     <link href="stylesheets/navbar.css" rel="stylesheet">
@@ -54,7 +59,7 @@
             </ul>
         </div>
 
-        <div class="collapse navbar-collapse menubar">
+        <div class="collapse navbar-collapse menubar" ng-controller="AuthCtrl">
             <ul class="nav navbar-nav navbar-right">
                 <li class="dropdown"><a href="#" class='dropdown-toggle' data-toggle='dropdown'><i class="fa fa-fw fa-home"></i>خانه</a>
                     <ul class="dropdown-menu">
@@ -66,7 +71,6 @@
                         <li><a href="#">Login Page </a></li>
                     </ul>
 
-
                 </li>
                 <li class='dropdown'><a href="#" class='dropdown-toggle' data-toggle='dropdown'><i class="fa fa-fw fa-support"></i>تماس با ما</a>
                     <ul class='dropdown-menu'>
@@ -77,7 +81,7 @@
 
                         </li>
                     </ul>
-                <li><a href="gallery"><i class="fa fa-fw fa-th" ng-click="/gallery"></i>گالری تصاویر</a></li>
+                <li><a href="gallery"><i class="fa fa-fw fa-th" ng-click="gallery"></i>گالری تصاویر</a></li>
                 <li><a href="#"><i class="fa fa-fw fa-bar-chart-o"></i>محصولات اخیر</a></li>
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-fw fa-users"></i>پروفایل من<i class="icon-angle-down"></i></a>
@@ -92,15 +96,11 @@
                         <li><a href="#">Terms of Use</a></li>
                     </ul>
                 </li>
-                <li id="LOGOUT"><a href="login"><i class="fa fa-sign-out" ng-click="logout()" ></i>خروج</a></li>
-                <li id="LOGIN"><a href="login"><i class="fa fa-fw fa-book" ng-click="/login" ></i>ورود</a></li>
+                <li><a href="login" ng-show="loggedIn()"><i class="fa fa-sign-out" ng-click="logout()" ></i>خروج</a></li>
                 <script>
-//                    if($window.localStorage['flapper-news-token'] != null)
-//                        document.getElementById("LOGOUT").style.visibility = "visible";
-//                    else
-//                        document.getElementById("LOGIN").style.visibility = "visible";
+                    console.log(loggedIn());
                 </script>
-
+                <li><a href="/login" ng-show="!loggedIn()"><i class="fa fa-sign-in"  ></i>ورود</a></li>
 
             </ul>
         </div>

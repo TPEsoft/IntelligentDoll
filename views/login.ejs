@@ -11,6 +11,7 @@
 
     <script type="text/javascript" src="javascripts/jquery.jscrollpane.min.js"></script>
     <script type="text/javascript" src="javascripts/jquery.ba-hashchange.js"></script>
+
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -41,7 +42,7 @@
 <body ng-app="IntelligentDoll">
 
 <div class="wrapper">
-    <div class="container">
+    <div class="container" ng-controller="AuthCtrl">
         <h1>خوش آمدید</h1>
 
         <div dir="rtl" ng-show="error.message" class="alert alert-danger row">
@@ -53,7 +54,7 @@
             <input type="password" placeholder="رمز عبور" ng-model="user.password">
             <button type="submit" id="login-button"> ورود</button>
         </form>
-        <a href="register"><i class="fa fa-fw fa-book" ng-click="/register"></i>جهت عضویت اینجا کلیک کنید</a>
+        <a href="register"><i class="fa fa-fw fa-book" on-click="register"></i>جهت عضویت اینجا کلیک کنید</a>
     </div>
 
     <ul class="bg-bubbles">

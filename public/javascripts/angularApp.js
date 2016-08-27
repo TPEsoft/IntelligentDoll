@@ -56,10 +56,14 @@ app.factory('auth', ['$http', '$window', function ($http, $window) {
     var auth = {};
 
     auth.saveToken = function (token) {
+        console.log(token + "@@@@@@@@");
         $window.localStorage['flapper-news-token'] = token;
+        console.log($window.localStorage['flapper-news-token'] + "@@@@@@@@##########");
+        console.log("token in auth.isLoggedIn"+auth.getToken());
     };
 
     auth.getToken = function () {
+        console.log($window.localStorage['flapper-news-token'] + "############");
         return $window.localStorage['flapper-news-token'];
     };
 
@@ -99,8 +103,6 @@ app.factory('auth', ['$http', '$window', function ($http, $window) {
 
     auth.logout = function () {
         $window.localStorage.removeItem('flapper-news-token');
-        console.log(localStorage['flapper-news-token']);
-        console.log("#############################################");
         //$window.location.href = '/';
     };
 
@@ -108,8 +110,9 @@ app.factory('auth', ['$http', '$window', function ($http, $window) {
 }]);
 
 app.run(function($window){
-    if($window.localStorage['flapper-news-token'] != null)
-        $window.location.href='/';
+    if($window.localStorage['flapper-news-token'] == null) {
+        $window.location.href = '/';
+    }
 });
 /*
 app.config([
@@ -269,10 +272,29 @@ app.controller('AuthCtrl',
                     $scope.error = error;
                 }).then(function () {
                     //$state.go('homePage');
+                    console.log(auth.getToken());
+                    console.log(auth.isLoggedIn());
                     $window.location.href = '/';
                 });
             };
 
+            /*
+            $scope.login = function () {
+                if(auth.isLoggedIn())
+                    $window.location.href = '/';
+                else
+                    $window.location.href = 'login';
+            };
+            */
+
+            $scope.logout = auth.logout;
+
+            //$scope.loggedIn = function(){
+            //    return auth.isLoggedIn();
+            //}
+            var loggedIn = auth.isLoggedIn;
+
+            //console.log(loggedIn());
         }]);
 
 // app.controller('NavCtrl',
