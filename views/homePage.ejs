@@ -13,9 +13,11 @@
 
     <link href="stylesheets/bootstrap.min.css" rel="stylesheet">
     <link href="stylesheets/homePage/style.css" rel="stylesheet">
-    <link href="stylesheets/navbar.css" rel="stylesheet">
+    <link href="stylesheets/navbar/navbar.css" rel="stylesheet">
     <link href="stylesheets/homePage/owl.carousel.css" rel="stylesheet" type="text/css">
     <link href="fonts/font-awesome-4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="stylesheets/navbar/scrolling-nav.css" rel="stylesheet">
+
     <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
@@ -59,9 +61,10 @@
             </ul>
         </div>
 
+
         <div class="collapse navbar-collapse menubar" ng-controller="AuthCtrl">
             <ul class="nav navbar-nav navbar-right">
-                <li class="dropdown"><a href="#" class='dropdown-toggle' data-toggle='dropdown'><i class="fa fa-fw fa-home"></i>خانه</a>
+                <li class="dropdown"><a href="homePage" class='dropdown-toggle' data-toggle='dropdown'><i class="fa fa-fw fa-home" ng-click="homePage"></i>خانه</a>
                     <ul class="dropdown-menu">
                         <li>
                             <a href="#">Bootstrap Templates</a></li>
@@ -72,15 +75,18 @@
                     </ul>
 
                 </li>
-                <li class='dropdown'><a href="#" class='dropdown-toggle' data-toggle='dropdown'><i class="fa fa-fw fa-support"></i>تماس با ما</a>
-                    <ul class='dropdown-menu'>
-                        <li><a href="#">Megamenu</a></li>
-                        <li><a href="#">Menu Bar</a>
-                        <li><a href="#">Accordion</a></li>
-                        <li><a href="#">Tabs</a>
+                <li><a class="page-scroll"  href="#contactInfo"><i class="fa fa-fw fa-support"></i>تماس با ما</a></li>
+                <!--<li class='dropdown'><a href="#contact-form" class='dropdown-toggle' data-toggle='dropdown'><i class="fa fa-fw fa-support"></i>تماس با ما</a>-->
+                    <!--<ul class='dropdown-menu'>-->
+                        <!--<li><a href="#">Megamenu</a></li>-->
+                        <!--<li><a href="#">Menu Bar</a>-->
+                        <!--<li><a href="#">Accordion</a></li>-->
+                        <!--<li><a href="#">Tabs</a>-->
 
-                        </li>
-                    </ul>
+                        <!--</li>-->
+                    <!--</ul>-->
+
+                <li><a href="shop"><i class="fa fa-shopping-cart"  ng-click="shop"></i>فروشگاه</a></li>
                 <li><a href="gallery"><i class="fa fa-fw fa-th" ng-click="gallery"></i>گالری تصاویر</a></li>
                 <li><a href="#"><i class="fa fa-fw fa-bar-chart-o"></i>محصولات اخیر</a></li>
                 <li class="dropdown">
@@ -497,13 +503,6 @@
                 </div>
             </div>
 
-
-
-
-
-
-
-
         </div>
     </div>
 </section>
@@ -609,7 +608,7 @@
         </div>
 
         <!--======= CONTACT INFO PART =========-->
-        <div class="con-info">
+        <div id="contactInfo" class="con-info">
             <div class="row">
                 <div class='container'>
                     <div class="col-md-6 col-sm-6">
@@ -675,12 +674,20 @@
 </footer>
 
 
-
+<!-- jQuery -->
 <script src="javascripts/jquery.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
 <script src="javascripts/bootstrap.min.js"></script>
+
 <script type="text/javascript" src="javascripts/owl.carousel.min.js"></script>
 <script src="javascripts/scrollReveal.js"></script>
 <script src="javascripts/function.js"></script>
+
+<!-- Scrolling Nav JavaScript -->
+<script src="javascripts/navbar/jquery.easing.min.js"></script>
+<script src="javascripts/navbar/scrolling-nav.js"></script>
+
 
 
 </body>

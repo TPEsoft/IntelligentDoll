@@ -2,8 +2,6 @@
  * Created by MAShahsavand on 8/18/16 AD.
  */
 var mongoose = require('mongoose');
-var crypto = require('crypto');
-var jwt = require('jsonwebtoken');
 
 var ProfileSchema = new mongoose.Schema({
     joinDate: Date,

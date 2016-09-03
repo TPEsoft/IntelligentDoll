@@ -32,6 +32,21 @@ router.get('/gallery', function (req, res, next) {
     res.render('gallery', {title: 'Express'});
 });
 
+/* GET Shop Page. */
+router.get('/shop', function (req, res, next) {
+    res.render('shop', {title: 'Express'});
+});
+
+/* GET Calender Page. */
+router.get('/calender', function (req, res, next) {
+    res.render('calender/calender', {title: 'Express'});
+});
+
+/* GET Calender Page. */
+router.get('/navTest', function (req, res, next) {
+    res.render('navTest', {title: 'Express'});
+});
+
 module.exports = router;
 
 var mongoose = require('mongoose');
